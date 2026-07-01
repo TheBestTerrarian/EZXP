@@ -4,6 +4,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.item.ItemStack;
@@ -94,7 +95,14 @@ public class LootingEventHandler {
     
     private static void handleAlwaysXp(LivingDropsEvent event, EntityLivingBase killer) {
         EntityLivingBase entity = event.getEntityLiving();
-        int xpToDrop = entity.getExperiencePoints(killer);
+        int xpToDrop = 0;
+        
+        // Only get XP if killer is a player
+        if (killer instanceof EntityPlayer) {
+            xpToDrop = entity.getExperiencePoints((EntityPlayer) killer);
+        } else {
+            xpToDrop = entity.getExperiencePoints(null);
+        }
         
         if (xpToDrop > 0) {
             xpToDrop = (int) (xpToDrop * Config.xpMultiplier);
