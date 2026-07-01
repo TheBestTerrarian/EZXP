@@ -1,0 +1,13 @@
+[
+  {
+    "modid": "alwaysdropplus",
+    "name": "AlwaysDropPlus",
+    "description": "Enhanced mob drops and experience mechanics. Mobs drop maximum items, Looting enchantment scales properly, and XP always drops.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/TheBestTerrarian/EZXP",
+    "authorList": ["TheBestTerrarian"],
+    "credits": "Inspired by mobs-always-drop, AlwaysXp, Always Drop Loot mods",
+    "dependencies": []
+  }
+]
